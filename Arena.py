@@ -54,7 +54,7 @@ class Arena():
             if valids[action] == 0:
                 log.error(f'Action {action} is not valid!')
                 log.debug(f'valids = {valids}')
-                assert valids[action] > 0
+                continue
             board, curPlayer = self.game.getNextState(board, curPlayer, action)
         if verbose:
             assert self.display
@@ -77,6 +77,7 @@ class Arena():
         oneWon = 0
         twoWon = 0
         draws = 0
+
         for _ in tqdm(range(num), desc="Arena.playGames (1)"):
             gameResult = self.playGame(verbose=verbose)
             if gameResult == 1:
