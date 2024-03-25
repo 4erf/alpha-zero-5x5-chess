@@ -7,7 +7,7 @@ from minichess.Game import MinichessGame as Game
 from minichess.NNetWrapper import NNetWrapper as nn
 from utils import *
 
-import resource
+# import rsrc
 import sys
 
 import torch.multiprocessing as mp
@@ -36,7 +36,7 @@ args = dotdict({
 
 def main():
     mp.set_start_method('spawn')
-    resource.setrlimit(resource.RLIMIT_STACK, (2 ** 29, -1))
+    # rsrc.setrlimit(rsrc.RLIMIT_STACK, (2 ** 29, -1))
     sys.setrecursionlimit(10 ** 6)
 
     log.info('Loading %s...', Game.__name__)
